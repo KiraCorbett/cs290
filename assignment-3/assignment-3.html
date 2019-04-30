@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Canadian Goddess Molly Rankin</title>
+
+  <!-- Add CSS Directory -->
+  <link href="css/main-style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+</head>
+
+<body>
+
+  <script>
+    var currentImage = 0;
+    var images = ["css/molly-1.jpg",
+     "css/molly-2.jpg",
+     "css/molly-3.jpg",
+     "css/molly-4.jpg"]
+
+
+    function handleImageCarousel() {
+      var mainImage = document.getElementById("main-image");
+
+      if (++currentImage > 3) {
+        currentImage = 0;
+      }
+      mainImage.src = images[currentImage];
+    }
+
+    function handleTextEditing(paragraphId, formId, textId) {
+      var paragraph = document.getElementById(paragraphId);
+      var form = document.getElementById(formId);
+      var textArea = document.getElementById(textId);
+
+      textArea.value = paragraph.innerHTML;
+      paragraph.style.display = "none";
+      form.style.display = "block";
+    }
+
+    function replaceText(paragraphId, formId, textId) {
+      var newText = document.getElementById(textId);
+      var form = document.getElementById(formId);
+      var paragraph = document.getElementById(paragraphId);
+
+      paragraph.innerHTML = newText.value;
+      paragraph.style.display = "block";
+      form.style.display = "none";
+    }
+
+    function removeTile(index) {
+      tile = document.getElementById('tile-list').getElementsByTagName("li")[index];
+
+      tile.style.display = "none";
+    }
+
+    function clearTiles() {
+      tiles = document.getElementById('tile-list').getElementsByTagName("li");
+      for (let i = 0; i < tiles.length; ++i) {
+        tiles[i].style.display = "none";
+      }
+    }
+
+    function resetTiles() {
+      tiles = document.getElementById('tile-list').getElementsByTagName("li");
+      for (let i = 0; i < tiles.length; ++i) {
+        tiles[i].style.display = "";
+      }
+    }
+
+  </script>
+
+  <nav>
+    <div class = "dropdown">
+      <div class = "nav-element"><a href = "https://www.youtube.com/watch?v=ZXu6q-6JKjA" target = "_blank">Dreams Tonite</a></div>
+      <div class = "dropdown-content">
+        <a href = "https://www.youtube.com/watch?v=ZXu6q-6JKjA" target = "_blank">Dreams Tonite</a>
+        <a href = "https://www.youtube.com/watch?v=ZXu6q-6JKjA" target = "_blank">Dreams Tonite</a>
+        <a href = "https://www.youtube.com/watch?v=ZXu6q-6JKjA" target = "_blank">Dreams Tonite</a>
+      </div>
+    </div>
+    <div class = "dropdown">
+      <div class = "nav-element"><a href = "https://www.youtube.com/watch?v=gcv9-XANcUQ" target = "_blank">Pecking Order</a></div>
+      <div class = "dropdown-content">
+        <a href = "https://www.youtube.com/watch?v=gcv9-XANcUQ" target = "_blank">Pecking Order</a>
+        <a href = "https://www.youtube.com/watch?v=gcv9-XANcUQ" target = "_blank">Pecking Order</a>
+        <a href = "https://www.youtube.com/watch?v=gcv9-XANcUQ" target = "_blank">Pecking Order</a>
+      </div>
+    </div>
+    <div class = "dropdown">
+      <div class = "nav-element"><a href = "https://www.youtube.com/watch?v=T1n72aCdwdU" target = "_blank">In Undertow</a></div>
+      <div class = "dropdown-content">
+        <a href = "https://www.youtube.com/watch?v=T1n72aCdwdU" target = "_blank">In Undertow</a>
+        <a href = "https://www.youtube.com/watch?v=T1n72aCdwdU" target = "_blank">In Undertow</a>
+        <a href = "https://www.youtube.com/watch?v=T1n72aCdwdU" target = "_blank">In Undertow</a>
+      </div>
+    </div>
+    <div class = "dropdown">
+      <div class = "nav-element"><a href = "https://www.youtube.com/watch?v=CV7OVcOHJwg" target = "_blank">Party Police</a></div>
+      <div class = "dropdown-content">
+        <a href = "https://www.youtube.com/watch?v=CV7OVcOHJwg" target = "_blank">Party Police</a>
+        <a href = "https://www.youtube.com/watch?v=CV7OVcOHJwg" target = "_blank">Party Police</a>
+        <a href = "https://www.youtube.com/watch?v=CV7OVcOHJwg" target = "_blank">Party Police</a>
+      </div>
+    </div>
+    <div class = "dropdown">
+      <div class = "nav-element"><a href = "https://www.youtube.com/watch?v=tAk2CErpo6o" target = "_blank">The Agency Group</a></div>
+      <div class = "dropdown-content">
+        <a href = "https://www.youtube.com/watch?v=tAk2CErpo6o" target = "_blank">The Agency Group</a>
+        <a href = "https://www.youtube.com/watch?v=tAk2CErpo6o" target = "_blank">The Agency Group</a>
+        <a href = "https://www.youtube.com/watch?v=tAk2CErpo6o" target = "_blank">The Agency Group</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class = "main">
+    <div>
+      <h1> Canadian Goddess Molly Rankin </h1>
+      <img src = "css/molly-1.jpg" id = "main-image" onclick = "handleImageCarousel()">
+      <p class = "text-indent" id = "paragraph-one" ondblclick = "handleTextEditing('paragraph-one', 'form-one', 'form-one-text')">
+        Korn (stylized as KoЯn) is an American nu metal band from Bakersfield, California, formed in 1993. The band is notable for pioneering the nu metal genre and bringing it into the mainstream.[3][4][5][6][7][8]
+
+        Originally formed in 1993 by three members of the band L.A.P.D., Korn's current lineup features founding members James "Munky" Shaffer (rhythm guitar), Reginald "Fieldy" Arvizu (bass), Brian "Head" Welch (lead guitar, backing vocals), and Jonathan Davis (lead vocals, bagpipes), with the addition of Ray Luzier (drums) in 2007, replacing the band's first drummer, David Silveria.
+
+        Korn made a demo tape, Neidermayer's Mind, in 1993, which was distributed free to record companies and on request to members of the public.[9] Their debut album, Korn, was released in 1994, followed by Life Is Peachy in 1996. The band first experienced mainstream success with Follow the Leader (1998) and Issues (1999), both of which debuted at number one on the Billboard 200.[10] The band's mainstream success continued with Untouchables (2002), Take a Look in the Mirror (2003) and See You on the Other Side (2005).
+      </p>
+      <div id = "form-one">
+        <form>
+          <textarea rows = "15" cols = "80" id = "form-one-text"></textarea>
+          <input type = "button" value = " Submit " onclick = "replaceText('paragraph-one', 'form-one', 'form-one-text')">
+        </form>
+      </div>
+      <br>
+      <p class = "text-indent" id = "paragraph-two" ondblclick = "handleTextEditing('paragraph-two', 'form-two', 'form-two-text')">
+        A compilation album, Greatest Hits Vol. 1, was released in 2004, spanning a decade of singles and concluding the band's recording contract with Immortal Records and Epic Records. They signed to Virgin Records, releasing See You on the Other Side in 2005, and an untitled album in 2007. Korn's other recent albums, Korn III: Remember Who You Are (2010) and The Path of Totality (2011), were released via Roadrunner Records, The Paradigm Shift (2013) being released via Prospect Park and Caroline Records. Their latest album, The Serenity of Suffering, was released on October 21, 2016.
+
+        As of 2012, Korn had sold more than 35 million copies worldwide.[11] Twelve of the band's official releases have peaked in the top ten of the Billboard 200, eight of which have peaked in the top five.[10] Seven official releases are certified platinum by the Recording Industry Association of America (RIAA), two are certified double platinum, one is certified triple platinum, one is certified five times platinum and two are certified Gold.[12] Korn has released seven video albums and thirty-nine music videos. The band has released forty-one singles, twenty-eight of which have charted.[13][14][15][16][17] Korn has earned two Grammy Awards out of eight nominations[18][19] and two MTV Video Music Awards out of eleven nominations.[20]
+      </p>
+      <div id = "form-two">
+        <form>
+          <textarea rows = "15" cols = "80" id = "form-two-text"></textarea>
+          <input type = "button" value = " Submit " onclick = "replaceText('paragraph-two', 'form-two', 'form-two-text')">
+        </form>
+      </div>
+    <br>
+  </div>
+  <div class = "list-container">
+    <p id = "list-header">Tiles</p>
+    <input type = "button" value = " Reset " onclick = "resetTiles()"><p style = "display: inline"> | </p><input type = "button" value = " Clear " onclick = "clearTiles()">
+    <br>
+    <ul class = "fact-list" id = "tile-list">
+      <li><div><input type = "button" value = "X" onclick = "removeTile(0)"><img src = "css/Tiles/Tile 1.jpg"><p>Tile 1</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(1)"><img src = "css/Tiles/Tile 2.jpg"><p>Tile 2</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(2)"><img src = "css/Tiles/Tile 3.jpg"><p>Tile 3</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(3)"><img src = "css/Tiles/Tile 4.jpg"><p>Tile 4</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(4)"><img src = "css/Tiles/Tile 5.png"><p>Tile 5</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(5)"><img src = "css/Tiles/Tile 6.png"><p>Tile 6</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(6)"><img src = "css/Tiles/Tile 7.png"><p>Tile 7</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(7)"><img src = "css/Tiles/Tile 8.jpg"><p>Tile 8</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(8)"><img src = "css/Tiles/Tile 9.gif"><p>Tile 9</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(9)"><img src = "css/Tiles/Tile 10.gif"><p>Tile 10</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(10)"><img src = "css/Tiles/Tile 11.jpg"><p>Tile 11</p></div></li>
+      <li><div><input type = "button" value = "X" onclick = "removeTile(11)"><img src = "css/Tiles/Tile 12.jpg"><p>Tile 12</p></div></li>
+    </ul>
+  </div>
+  <br>
+</div>
+
+<footer>
+  <p>CS290 Assignment #3: Garrett Gunnell and Kira Corbett</p>
+</footer>
+</body>
+
+</html>
