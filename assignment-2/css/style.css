@@ -1,0 +1,130 @@
+
+*, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/* Navigation Styles */
+nav {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: block;
+  height: 120px;
+  width: 100%;
+  text-align: center;
+  background-image: url("antisocialites.png");
+  background-size: 100%;
+}
+
+
+.nav-element {
+  display: inline;
+  padding-right: 1%;
+  padding-left: 1%;
+  text-decoration:underline;
+  color: white;
+  font-size: 1em;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+a:link, a:visited {
+  color: white;
+}
+
+.nav-element a:hover{
+  color: #cc4f6c;
+  text-shadow: -1px -1px 0 #843245, 1px -1px 0 #843245, -1px 1px 0 #843245, 1px 1px 0 #843245;
+}
+
+#nav-list {
+  list-style: none;
+  overflow: hidden;
+}
+
+/* Body Styles */
+
+h1 {
+  font-family: Arial;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  letter-spacing: 5px;
+}
+
+.main {
+  position: relative;
+  bottom: 50px;
+  margin: 0 auto;
+  padding-right: 1%;
+  padding-left: 1%;
+  padding-bottom: 1%;
+  width: 60%;
+  height: 80%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-left: 1px solid #d3e0f0;
+  border-bottom: 1px solid #d3e0f0;
+  border-right: 1px solid #d3e0f0;
+  box-shadow: 5px 5px 5px #242a7a;
+}
+
+body {
+  font-family: 'IBM Plex Sans';
+  background-image: url("background.png");
+  background-size: auto;
+}
+
+.text-indent {
+  text-indent: 25px;
+}
+
+img {
+  border-radius: 15px;
+  height: 297px;
+  width: 446px;
+  margin-right: 10px;
+  float: left;
+  border: 3px solid #d3e0f0;
+  box-shadow: 5px 5px 5px #efc439;
+}
+
+.fact-list {
+  /*padding-top: 20px;
+  padding-left: 10px;*/
+  list-style: none;
+  padding-left: 0;
+}
+
+.fact-list li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.fact-list li:before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-image: url("record.jpeg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#list-header {
+  display: block;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  background-color: #a4c5fc;
+  width: 100%;
+  clear: both;
+  text-align: center;
+}
