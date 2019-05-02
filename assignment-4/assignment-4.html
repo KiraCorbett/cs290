@@ -60,10 +60,10 @@
 
     // Clear tiles button
       $("#clear-button").on('click', function(){
-        $("#tile-list").hide();
+        $("#tile-list").children().siblings().hide();
       });
 
-    // Reset tiles button 
+    // Reset tiles button
     $("#reset-button").on('click', function(){
         $("#tile-list").children().siblings().show();
       });
