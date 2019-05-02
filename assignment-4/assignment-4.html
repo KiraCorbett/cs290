@@ -7,6 +7,8 @@
   <!-- Add CSS Directory -->
   <link href="css/main-style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,6 +20,7 @@
      "css/molly-3.jpg",
      "css/molly-4.jpg"]
 
+     var tileOn = false;
 
     function handleImageCarousel() {
       var mainImage = document.getElementById("main-image");
@@ -48,11 +51,11 @@
       form.style.display = "none";
     }
 
-    function removeTile(index) {
-      tile = document.getElementById('tile-list').getElementsByTagName("li")[index];
-
-      tile.style.display = "none";
-    }
+    $(document).ready(function(event){
+      $("#tile-list input").on('click', function(){
+        $(this).parent().hide();
+      });
+    });
 
     function clearTiles() {
       tiles = document.getElementById('tile-list').getElementsByTagName("li");
@@ -149,18 +152,18 @@
     <input type = "button" value = " Reset " onclick = "resetTiles()"><p style = "display: inline"> | </p><input type = "button" value = " Clear " onclick = "clearTiles()">
     <br>
     <ul class = "fact-list" id = "tile-list">
-      <li><div><input type = "button" value = "X" onclick = "removeTile(0)"><img src = "css/Tiles/Tile 1.jpg"><p>Tile 1</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(1)"><img src = "css/Tiles/Tile 2.jpg"><p>Tile 2</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(2)"><img src = "css/Tiles/Tile 3.jpg"><p>Tile 3</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(3)"><img src = "css/Tiles/Tile 4.jpg"><p>Tile 4</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(4)"><img src = "css/Tiles/Tile 5.png"><p>Tile 5</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(5)"><img src = "css/Tiles/Tile 6.png"><p>Tile 6</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(6)"><img src = "css/Tiles/Tile 7.png"><p>Tile 7</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(7)"><img src = "css/Tiles/Tile 8.jpg"><p>Tile 8</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(8)"><img src = "css/Tiles/Tile 9.gif"><p>Tile 9</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(9)"><img src = "css/Tiles/Tile 10.gif"><p>Tile 10</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(10)"><img src = "css/Tiles/Tile 11.jpg"><p>Tile 11</p></div></li>
-      <li><div><input type = "button" value = "X" onclick = "removeTile(11)"><img src = "css/Tiles/Tile 12.jpg"><p>Tile 12</p></div></li>
+      <li><div><input type = "button" value = "X" id = "tile-button"><img src = "css/Tiles/Tile 1.jpg"><p>Tile 1</p></div></li>
+      <li><div><input type = "button" value = "X" id = "tile-button"><img src = "css/Tiles/Tile 2.jpg"><p>Tile 2</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 3.jpg"><p>Tile 3</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 4.jpg"><p>Tile 4</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 5.png"><p>Tile 5</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 6.png"><p>Tile 6</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 7.png"><p>Tile 7</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 8.jpg"><p>Tile 8</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 9.gif"><p>Tile 9</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 10.gif"><p>Tile 10</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 11.jpg"><p>Tile 11</p></div></li>
+      <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 12.jpg"><p>Tile 12</p></div></li>
     </ul>
   </div>
   <br>
