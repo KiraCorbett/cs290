@@ -62,6 +62,12 @@
       $("#clear-button").on('click', function(){
         $("#tile-list").hide();
       });
+
+    // Reset tiles button 
+    $("#reset-button").on('click', function(){
+        $("#tile-list").show();
+      });
+
     });
 
   </script>
@@ -142,7 +148,7 @@
   </div>
   <div class = "list-container">
     <p id = "list-header">Tiles</p>
-    <input type = "button" value = " Reset " onclick = "resetTiles()"><p style = "display: inline"> | </p><input type = "button" value = " Clear " id = "clear-button">
+    <input type = "button" value = " Reset " id = "reset-button""><p style = "display: inline"> | </p><input type = "button" value = " Clear " id = "clear-button">
     <br>
     <ul class = "fact-list" id = "tile-list">
       <li><div><input type = "button" value = "X"><img src = "css/Tiles/Tile 1.jpg"><p>Tile 1</p></div></li>
