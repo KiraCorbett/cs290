@@ -1,0 +1,30 @@
+body {
+    background-image: url("background.png");
+}
+
+/* Table Styles */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 25px;
+    text-align: left;
+    font-size: 25px;
+  }
+
+  td {
+      border: none;
+      padding: 10px;
+      text-align: left;
+  }
+
+  /* Button Styles */
+  #next-button {
+    margin: 5px;
+    height: 25px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+  }
