@@ -8,6 +8,7 @@
     <link href="css/stylesheet.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
 
 <script>
@@ -21,18 +22,18 @@
         // loads checkbox choices and text fields when NEXT clicked
         $("#next-button").click(function(){
             var boxes = [];
-            $.each($("input[name='choice-checked']:checked"), function(){            
+            $.each($("input[name='choice-checked']:checked"), function(){
                 boxes.push($(this).val());
             });
             alert("Checked: " + boxes.join(", "));
 
             /*var entries = [];
-            $.each($("input[name='team']:checked"), function(){            
+            $.each($("input[name='team']:checked"), function(){
                 entries.push($(#team1).val());
             });
             alert("Entered: " + entries.join(", "));*/
 
-            /*value = $("#team1").val(); 
+            /*value = $("#team1").val();
             alert($("#team1").val());*/
         });
 
@@ -42,12 +43,11 @@
 
 <body>
     <div class "main-body">
-        <div>
-            <h1>Welcome to Molly Rankin's Jeopardy!</h1>
-
+        <h1>Welcome to Molly Rankin's Jeopardy!</h1>
+        <div id = "screen-one-table">
             <table>
                 <tr>
-                    <th colspan="6">Select upto Five Categories</th>
+                    <th colspan="6">Select up to Five Categories</th>
                 </tr>
                 <tr>
                     <td><input type="checkbox" name="choice-checked" value="html-checked"/> HTML</td>
@@ -58,26 +58,25 @@
                     <td><input type="checkbox" name="choice-checked" value="mongo-checked"/> Mongo</td>
                 </tr>
                 <tr>
-                    <th colspan="6">Enter upto Four Team Names</th>
+                    <th colspan="6">Enter up to Four Team Names</th>
                 </tr>
                 <tr>
-                    <td colspan="6">Team 1: <input type="text" name="team" value="team1"></td>
+                    <td colspan="6">Team 1:  <input type="text" name="team" value="Enter team name.."></td>
                 </tr>
                 <tr>
-                    <td colspan="6">Team 2: <input type="text" name="team" value="team2"></td>
+                    <td colspan="6">Team 2:  <input type="text" name="team" value="Enter team name.."></td>
                 </tr>
                 <tr>
-                    <td colspan="6">Team 3: <input type="text" name="team" value="team3"></td>
+                    <td colspan="6">Team 3:  <input type="text" name="team" value="Enter team name.."></td>
                 </tr>
                 <tr>
-                    <td colspan="6">Team 4: <input type="text" name="team" value="team4"></td>
+                    <td colspan="6">Team 4:  <input type="text" name="team" value="Enter team name.."></td>
                 </tr>
                 <!--<tr id="button-row">
                     <td colspan="6"><button type="button" id="next-button" onclick="alert('This is a Test!')">NEXT >></button></td>
                 </tr>-->
             </table>
         </div>
-
         <div>
             <button type="button" id="next-button"><a href="game.html">NEXT >></a></button>
         </div>
