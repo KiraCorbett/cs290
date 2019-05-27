@@ -15,33 +15,78 @@ h1 {
   padding-top: 5%;
 }
 
-/* Table Styles */
+/* Screen One Styles */
 
 #screen-one-table {
     width: 50%;
     margin: 0 auto;
 }
 
-table {
+#screen-one-table table {
   background-color: white;
     width: 100%;
     border: 1px solid black;
     border-collapse: collapse;
   }
 
-  th {
+#screen-one-table  th {
     padding: 25px;
     text-align: center;
     font-size: 25px;
   }
 
-  td {
+#screen-one-table  td {
       border: 1px solid black;
       text-align: center;
       padding: 5px;
       padding-top: 10px;
       padding-bottom: 10px;
   }
+
+/* Screen Two Styles */
+
+#screen-two-table {
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
+  padding-top: 2%;
+}
+
+#screen-two-table table {
+  table-layout: fixed;
+    background-color: white;
+    width: 100%;
+    border: 5px solid black;
+    border-collapse: collapse;
+}
+
+#screen-two-table th {
+    padding: 25px;
+    text-align: center;
+    font-size: 25px;
+    border: 5px solid black;
+}
+
+#screen-two-table  td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 5px;
+      padding-top: 2%;
+      padding-bottom: 2%;
+  }
+
+#team-list {
+  text-align: center;
+}
+
+#team-list p {
+  background-color: white;
+  display: inline-block;
+  margin: 5%;
+  padding: 50px;
+  border: 1px solid black;
+  font-size: 25px;
+}
 
   /* Button Styles */
   #next-button {
