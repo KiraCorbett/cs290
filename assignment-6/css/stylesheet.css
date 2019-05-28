@@ -105,6 +105,8 @@ h1 {
   right: 50%;
   bottom: 50%;
   text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
   border: 2px solid black;
 }
 
@@ -124,6 +126,10 @@ h1 {
   clear: right;
   font-size: 25px;
   margin-bottom: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: block;
+  position: relative;
 }
 
 
@@ -133,6 +139,7 @@ h1 {
 }
 
 #question-team-list {
+  display: block;
   margin-top: 10%;
 }
 
