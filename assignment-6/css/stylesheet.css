@@ -23,6 +23,7 @@ h1 {
 }
 
 #screen-one-table table {
+  table-layout: fixed;
   background-color: white;
     width: 100%;
     border: 1px solid black;
@@ -88,6 +89,65 @@ h1 {
   margin: 5%;
   padding: 50px;
   border: 2px solid black;
+  font-size: 25px;
+}
+
+/* Screen Three Styles */
+
+.screen-three {
+  background-color: white;
+  position: fixed;
+  width: 50%;
+  height: 50%;
+  z-index: 2;
+  top: 25%;
+  left: 25%;
+  right: 50%;
+  bottom: 50%;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.screen-three button {
+  float: right;
+  padding: 10px;
+  margin: 5px;
+}
+
+.screen-three span {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#question {
+  clear: right;
+  font-size: 25px;
+  margin-bottom: 5%;
+}
+
+
+#answer {
+  margin-top: 5%;
+  display: block;
+}
+
+#question-team-list {
+  margin-top: 10%;
+}
+
+#question-team-list div {
+  display: inline-block;
+  background-color: lightblue;
+  width: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin: 0 auto;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+#question-team-list div p {
   font-size: 25px;
 }
 
