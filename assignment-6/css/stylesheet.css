@@ -143,6 +143,34 @@ h1 {
   margin-top: 10%;
 }
 
+/* Screen Four Styles */
+
+.screen-four {
+  position: relative;
+  width: 40%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 10%;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.screen-four p {
+  font-size: 20px;
+  padding-top: 5%;
+}
+
+.screen-four input {
+  margin-bottom: 5%;
+}
+
+.screen-four button {
+  display: block;
+  margin: 0 auto;
+  padding: 1%;
+  margin-bottom: 2%;
+}
+
 #question-team-list div {
   display: inline-block;
   background-color: lightblue;
