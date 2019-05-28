@@ -143,6 +143,21 @@ h1 {
   margin-top: 10%;
 }
 
+#question-team-list div {
+  display: inline-block;
+  background-color: lightblue;
+  width: 20%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin: 0 auto;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+
+#question-team-list div p {
+  font-size: 25px;
+}
+
 /* Screen Four Styles */
 
 .screen-four {
@@ -171,20 +186,26 @@ h1 {
   margin-bottom: 2%;
 }
 
-#question-team-list div {
-  display: inline-block;
-  background-color: lightblue;
-  width: 20%;
-  padding-top: 5%;
-  padding-bottom: 5%;
+/* Screen Five Styles */
+
+.screen-five {
+  width: 50%;
   margin: 0 auto;
-  margin-left: 5px;
+  margin-top: 10%;
+  background-color: white;
   border: 1px solid black;
+  text-align: center;
 }
 
-#question-team-list div p {
-  font-size: 25px;
+.screen-five select {
+  margin-top: 2%;
 }
+
+.screen-five textarea {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
 
   /* Button Styles */
   #next-button {
