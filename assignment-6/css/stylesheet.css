@@ -53,7 +53,17 @@ h1 {
 
 /* Screen Two Styles */
 
+.screen-two button {
+  position: absolute;
+  z-index: 3;
+  padding: 5px;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
 #screen-two-table {
+  position: relative;
+  clear: left;
   width: 80%;
   height: 80%;
   margin: 0 auto;
@@ -94,7 +104,9 @@ h1 {
   background-color: #bcffe9;
   display: inline-block;
   margin: 5%;
-  padding: 50px;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 3%;
   border: 2px solid black;
   font-size: 25px;
 }
