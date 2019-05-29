@@ -12,10 +12,17 @@ body {
 h1 {
   text-align: center;
   padding-bottom: 3%;
-  padding-top: 5%;
+  clear: right;
 }
 
 /* Screen One Styles */
+
+#login-button {
+  float: right;
+  margin-right: 2%;
+  margin-top: 2%;
+  padding: 2%;
+}
 
 #screen-one-table {
     width: 50%;
@@ -171,8 +178,9 @@ h1 {
 }
 
 .screen-four p {
+  clear: left;
   font-size: 20px;
-  padding-top: 5%;
+  padding-top: 3%;
 }
 
 .screen-four input {
@@ -184,6 +192,13 @@ h1 {
   margin: 0 auto;
   padding: 1%;
   margin-bottom: 2%;
+}
+
+#login-back {
+  float: left;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 0;
 }
 
 /* Screen Five Styles */

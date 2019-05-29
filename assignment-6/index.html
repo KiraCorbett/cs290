@@ -5,179 +5,194 @@
 <title>Molly Rankin's Jeopardy</title>
 
 <head>
-    <link href="css/stylesheet.css" rel="stylesheet">
+  <link href="css/stylesheet.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
 </head>
 
 <script>
 
-    var htmlChecked = false;
-    var cssChecked = false;
-    var boxes = $('.choice-checked:checked');
+  var htmlChecked = false;
+  var cssChecked = false;
+  var boxes = $('.choice-checked:checked');
 
-    $(document).ready(function(event){
-        // NOTE: DOES NOT STORE DATE...YET
-        // loads checkbox choices and text fields when NEXT clicked
-        $("#next-button").click(function(){
-            var boxes = [];
-            $.each($("input[name='choice-checked']:checked"), function(){
-                boxes.push($(this).val());
-            });
-            //alert("Checked: " + boxes.join(", "));
+  $(document).ready(function(event){
 
-            /*var entries = [];
-            $.each($("input[name='team']:checked"), function(){
-                entries.push($(#team1).val());
-            });
-            alert("Entered: " + entries.join(", "));*/
-
-            /*value = $("#team1").val();
-            alert($("#team1").val());*/
-
-            $(".screen-one").hide();
-            $(".screen-two").show();
-        });
-
-
+    $("#login-button").click(function() {
+      $(".screen-one").hide();
+      $(".screen-four").show();
     });
+
+    $("#login-back").click(function() {
+      $(".screen-one").show();
+      $(".screen-four").hide();
+    });
+
+  // NOTE: DOES NOT STORE DATE...YET
+  // loads checkbox choices and text fields when NEXT clicked
+    $("#next-button").click(function(){
+      var boxes = [];
+      $.each($("input[name='choice-checked']:checked"), function(){
+        boxes.push($(this).val());
+      });
+      //alert("Checked: " + boxes.join(", "));
+
+      /*var entries = [];
+      $.each($("input[name='team']:checked"), function(){
+      entries.push($(#team1).val());
+    });
+    alert("Entered: " + entries.join(", "));*/
+
+    /*value = $("#team1").val();
+    alert($("#team1").val());*/
+
+    $(".screen-one").hide();
+    $(".screen-two").show();
+    });
+
+
+  });
 </script>
 
 <body>
-    <div class = "screen-one" style = "display: none;">
-        <h1>Welcome to Molly Rankin's Jeopardy!</h1>
-        <div id = "screen-one-table">
-            <table>
-                <tr>
-                    <th colspan="6">Select up to Five Categories</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="choice-checked" value="html-checked"/> HTML</td>
-                    <td><input type="checkbox" name="choice-checked" value="css-checked"/> CSS</td>
-                    <td><input type="checkbox" name="choice-checked" value="jscript-checked"/> JavaScript</td>
-                    <td><input type="checkbox" name="choice-checked" value="jquery-checked"/> JQuery</td>
-                    <td><input type="checkbox" name="choice-checked" value="node-checked"/> NodeJS</td>
-                    <td><input type="checkbox" name="choice-checked" value="mongo-checked"/> Mongo</td>
-                </tr>
-                <tr>
-                    <th colspan="6">Enter up to Four Team Names</th>
-                </tr>
-                <tr>
-                    <td colspan="6">Team 1:  <input type="text" name="team" value="Enter team name.."></td>
-                </tr>
-                <tr>
-                    <td colspan="6">Team 2:  <input type="text" name="team" value="Enter team name.."></td>
-                </tr>
-                <tr>
-                    <td colspan="6">Team 3:  <input type="text" name="team" value="Enter team name.."></td>
-                </tr>
-                <tr>
-                    <td colspan="6">Team 4:  <input type="text" name="team" value="Enter team name.."></td>
-                </tr>
-                <!--<tr id="button-row">
-                    <td colspan="6"><button type="button" id="next-button" onclick="alert('This is a Test!')">NEXT >></button></td>
-                </tr>-->
-            </table>
-        </div>
-        <div>
-            <button type="button" id="next-button">NEXT >></button>
-        </div>
-    </div>
+  <div class = "screen-one">
+    <button id = "login-button" type = "button"> Login </button>
+    <h1>Welcome to Molly Rankin's Jeopardy!</h1>
+    <div id = "screen-one-table">
+      <table>
+        <tr>
+          <th colspan="6">Select up to Five Categories</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="choice-checked" value="html-checked"/> HTML</td>
+          <td><input type="checkbox" name="choice-checked" value="css-checked"/> CSS</td>
+          <td><input type="checkbox" name="choice-checked" value="jscript-checked"/> JavaScript</td>
+          <td><input type="checkbox" name="choice-checked" value="jquery-checked"/> JQuery</td>
+          <td><input type="checkbox" name="choice-checked" value="node-checked"/> NodeJS</td>
+          <td><input type="checkbox" name="choice-checked" value="mongo-checked"/> Mongo</td>
+        </tr>
+        <tr>
+          <th colspan="6">Enter up to Four Team Names</th>
+        </tr>
+        <tr>
+          <td colspan="6">Team 1:  <input type="text" name="team" value="Enter team name.."></td>
+        </tr>
+        <tr>
+          <td colspan="6">Team 2:  <input type="text" name="team" value="Enter team name.."></td>
+        </tr>
+        <tr>
+          <td colspan="6">Team 3:  <input type="text" name="team" value="Enter team name.."></td>
+        </tr>
+        <tr>
+          <td colspan="6">Team 4:  <input type="text" name="team" value="Enter team name.."></td>
+        </tr>
+        <!--<tr id="button-row">
+        <td colspan="6"><button type="button" id="next-button" onclick="alert('This is a Test!')">NEXT >></button></td>
+      </tr>-->
+    </table>
+  </div>
+  <div>
+    <button type="button" id="next-button">NEXT >></button>
+  </div>
+</div>
 
-    <div class = "screen-two" style = "display: none;">
+<div class = "screen-two" style = "display: none;">
 
-      <div id = "screen-two-table">
-        <table>
-          <tr>
-            <th>HTML</th>
-            <th>CSS</th>
-            <th>JAVASCRIPT</th>
-            <th>JQUERY</th>
-            <th>NODE</th>
-          </tr>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-            <td>100</td>
-          <tr>
-            <td>200</td>
-            <td>200</td>
-            <td>200</td>
-            <td>200</td>
-            <td>200</td>
-          </tr>
-          <tr>
-            <td>300</td>
-            <td>300</td>
-            <td>300</td>
-            <td>300</td>
-            <td>300</td>
-          </tr>
-          <tr>
-            <td>400</td>
-            <td>400</td>
-            <td>400</td>
-            <td>400</td>
-            <td>400</td>
-          </tr>
-          <tr>
-            <td>500</td>
-            <td>500</td>
-            <td>500</td>
-            <td>500</td>
-            <td>500</td>
-          </tr>
-        </table>
-      </div>
-      <div id = "team-list">
-        <p>Team 1: 0</p>
-        <p>Team 2: 0</p>
-        <p>Team 3: 0</p>
-        <p>Team 4: 0</p>
-      </div>
-    </div>
+  <div id = "screen-two-table">
+    <table>
+      <tr>
+        <th>HTML</th>
+        <th>CSS</th>
+        <th>JAVASCRIPT</th>
+        <th>JQUERY</th>
+        <th>NODE</th>
+      </tr>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <td>100</td>
+      <tr>
+        <td>200</td>
+        <td>200</td>
+        <td>200</td>
+        <td>200</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <td>300</td>
+        <td>300</td>
+        <td>300</td>
+        <td>300</td>
+        <td>300</td>
+      </tr>
+      <tr>
+        <td>400</td>
+        <td>400</td>
+        <td>400</td>
+        <td>400</td>
+        <td>400</td>
+      </tr>
+      <tr>
+        <td>500</td>
+        <td>500</td>
+        <td>500</td>
+        <td>500</td>
+        <td>500</td>
+      </tr>
+    </table>
+  </div>
+  <div id = "team-list">
+    <p>Team 1: 0</p>
+    <p>Team 2: 0</p>
+    <p>Team 3: 0</p>
+    <p>Team 4: 0</p>
+  </div>
+</div>
 
-    <div class = "screen-three" style = "display: none;">
+<div class = "screen-three" style = "display: none;">
 
-      <button type="button"> X </button>
-      <p id = "question">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-      <span>Answer</span>
-      <div id = "answer-block"><p id = "answer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></div>
-      <div id = "question-team-list">
-        <div id = "question-team-one"><p>Team 1</p></div>
-        <div id = "question-team-two"><p>Team 2</p></div>
-        <div id = "question-team-three"><p>Team 3</p></div>
-        <div id = "question-team-four"><p>Team 4</p></div>
-      </div>
-    </div>
+  <button type="button"> X </button>
+  <p id = "question">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
+  <span>Answer</span>
+  <div id = "answer-block"><p id = "answer">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p></div>
+  <div id = "question-team-list">
+    <div id = "question-team-one"><p>Team 1</p></div>
+    <div id = "question-team-two"><p>Team 2</p></div>
+    <div id = "question-team-three"><p>Team 3</p></div>
+    <div id = "question-team-four"><p>Team 4</p></div>
+  </div>
+</div>
 
-    <div class = "screen-four" style = "display: none;">
-      <p>Username: </p><input type = "text">
-      <p>Password: </p><input type = "text">
-      <button type = "button"> Submit </button>
-    </div>
+<div class = "screen-four" style = "display: none;">
+  <button id = "login-back" type = "button"> << Back </button>
+  <div>
+    <p>Username: </p><input type = "text">
+    <p>Password: </p><input type = "text">
+    <button type = "button"> Submit </button>
+  </div>
+</div>
 
-    <div class = "screen-five">
-      <select>
-        <option value = "HTML">HTML</option>
-        <option value = "CSS">CSS</option>
-        <option value = "JavaScript">JavaScript</option>
-        <option value = "JQuery">JQuery</option>
-        <option value = "NodeJS">NodeJS</option>
-        <option value = "Mongo">Mongo</option>
-      </select>
-      <select>
-        <option value = "100">100</option>
-        <option value = "200">200</option>
-        <option value = "300">300</option>
-        <option value = "400">400</option>
-        <option value = "500">500</option>
-      </select>
-      <p>Question: </p><textarea rows = "10" cols = "50"></textarea>
-      <p>Answer: </p><textarea rows = "10" cols = "50"></textarea>
-    </div>
+<div class = "screen-five" style = "display: none;">
+  <select>
+    <option value = "HTML">HTML</option>
+    <option value = "CSS">CSS</option>
+    <option value = "JavaScript">JavaScript</option>
+    <option value = "JQuery">JQuery</option>
+    <option value = "NodeJS">NodeJS</option>
+    <option value = "Mongo">Mongo</option>
+  </select>
+  <select>
+    <option value = "100">100</option>
+    <option value = "200">200</option>
+    <option value = "300">300</option>
+    <option value = "400">400</option>
+    <option value = "500">500</option>
+  </select>
+  <p>Question: </p><textarea rows = "10" cols = "50"></textarea>
+  <p>Answer: </p><textarea rows = "10" cols = "50"></textarea>
+</div>
 </body>
 
 </html>
