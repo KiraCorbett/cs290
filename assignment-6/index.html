@@ -106,6 +106,12 @@
     $(this).parent().hide();
   });
 
+  $(document).keyup(function(e) {
+    if (e.keyCode == 27) {
+      $(".screen-three").hide();
+    }
+  });
+
   });
 </script>
 
