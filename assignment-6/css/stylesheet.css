@@ -98,6 +98,8 @@ h1 {
 
 #team-list {
   text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 #team-list p {

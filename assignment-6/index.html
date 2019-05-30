@@ -34,6 +34,36 @@
       $(".screen-one").show();
     })
 
+    $("#team-two-name").focusout(function() {
+      if ($("#team-one-name").val() == "") {
+        $("#team-one-name").val($(this).val());
+        $(this).val("");
+      }
+    });
+
+    $("#team-three-name").focusout(function() {
+      if ($("#team-one-name").val() == "") {
+        $("#team-one-name").val($(this).val());
+        $(this).val("");
+      } else if ($("#team-two-name").val() == "") {
+        $("#team-two-name").val($(this).val());
+        $(this).val("");
+      }
+    });
+
+    $("#team-four-name").focusout(function() {
+      if ($("#team-one-name").val() == "") {
+        $("#team-one-name").val($(this).val());
+        $(this).val("");
+      } else if ($("#team-two-name").val() == "") {
+        $("#team-two-name").val($(this).val());
+        $(this).val("");
+      } else if ($("#team-three-name").val() == "") {
+        $("#team-three-name").val($(this).val());
+        $(this).val("");
+      }
+    });
+
   // NOTE: DOES NOT STORE DATE...YET
   // loads checkbox choices and text fields when NEXT clicked
     $("#next-button").click(function(){
@@ -41,6 +71,9 @@
       $.each($("input[name='choice-checked']:checked"), function(){
         boxes.push($(this).val());
       });
+      var teamNameArgsValid = $("#team-one-name").val() != "" && $("#team-two-name").val() != "";
+
+
       //alert("Checked: " + boxes.join(", "));
 
       /*var entries = [];
@@ -52,22 +85,35 @@
     /*value = $("#team1").val();
     alert($("#team1").val());*/
 
-    $(".screen-one").hide();
-    $(".screen-two").show();
-    });
+    if (teamNameArgsValid) {
+      $("#team-list").empty();
+      $("#team-list").append("<p id = 'team-one'>" + $("#team-one-name").val() + ": 0</p>");
+      $("#team-list").append("<p id = 'team-two'>" + $("#team-two-name").val() + ": 0</p>");
+
+      if ($("#team-three-name").val() != "") {
+        $("#team-list").append("<p id = 'team-three'>" + $("#team-three-name").val() + ": 0</p>");
+      }
+      if ($("#team-four-name").val() != "") {
+        $("#team-list").append("<p id = 'team-four'>" + $("#team-four-name").val() + ": 0</p>");
+      }
+
+      $(".screen-one").hide();
+      $(".screen-two").show();
+    }
+  });
 
 
   });
 </script>
 
 <body>
-  <div class = "screen-one" style = "display: none;">
+  <div class = "screen-one">
     <button id = "login-button" type = "button"> Login </button>
     <h1>Welcome to Molly Rankin's Jeopardy!</h1>
     <div id = "screen-one-table">
       <table>
         <tr>
-          <th colspan="6">Select up to Five Categories</th>
+          <th colspan="6">Select Five Categories</th>
         </tr>
         <tr>
           <td><input type="checkbox" name="choice-checked" value="html-checked"/> HTML</td>
@@ -78,19 +124,19 @@
           <td><input type="checkbox" name="choice-checked" value="mongo-checked"/> Mongo</td>
         </tr>
         <tr>
-          <th colspan="6">Enter up to Four Team Names</th>
+          <th colspan="6">Enter up to Four Team Names (Min. 2)</th>
         </tr>
         <tr>
-          <td colspan="6">Team 1:  <input type="text" name="team" value="Enter team name.."></td>
+          <td colspan="6">Team 1:  <input type="text" name="team" value="" id = "team-one-name"></td>
         </tr>
         <tr>
-          <td colspan="6">Team 2:  <input type="text" name="team" value="Enter team name.."></td>
+          <td colspan="6">Team 2:  <input type="text" name="team" value="" id = "team-two-name"></td>
         </tr>
         <tr>
-          <td colspan="6">Team 3:  <input type="text" name="team" value="Enter team name.."></td>
+          <td colspan="6">Team 3:  <input type="text" name="team" value="" id = "team-three-name"></td>
         </tr>
         <tr>
-          <td colspan="6">Team 4:  <input type="text" name="team" value="Enter team name.."></td>
+          <td colspan="6">Team 4:  <input type="text" name="team" value="" id = "team-four-name"></td>
         </tr>
         <!--<tr id="button-row">
         <td colspan="6"><button type="button" id="next-button" onclick="alert('This is a Test!')">NEXT >></button></td>
@@ -102,7 +148,7 @@
   </div>
 </div>
 
-<div class = "screen-two" >
+<div class = "screen-two" style = "display: none;">
   <button id = "game-back" style = "button"> << BACK </button>
   <div id = "screen-two-table">
     <table>
@@ -149,10 +195,10 @@
     </table>
   </div>
   <div id = "team-list">
-    <p>Team 1: 0</p>
-    <p>Team 2: 0</p>
-    <p>Team 3: 0</p>
-    <p>Team 4: 0</p>
+    <p id = "team-one">Team 1: 0</p>
+    <p id = "team-two">Team 2: 0</p>
+    <p id = "team-three">Team 3: 0</p>
+    <p id = "team-four">Team 4: 0</p>
   </div>
 </div>
 
