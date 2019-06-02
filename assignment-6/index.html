@@ -89,12 +89,18 @@
       $("#team-list").empty();
       $("#team-list").append("<p id = 'team-one'>" + $("#team-one-name").val() + ": 0</p>");
       $("#team-list").append("<p id = 'team-two'>" + $("#team-two-name").val() + ": 0</p>");
+      $(".screen-three").show();
+      $("#question-team-list").empty();
+      $("#question-team-list").append("<div id = 'question-team-one'><p>" + $("#team-one-name").val() + "</p>");
+      $("#question-team-list").append("<div id = 'question-team-two'><p>" + $("#team-two-name").val() + "</p>");
 
       if ($("#team-three-name").val() != "") {
         $("#team-list").append("<p id = 'team-three'>" + $("#team-three-name").val() + ": 0</p>");
+        $("#question-team-list").append("<div id = 'question-team-three'><p>" + $("#team-three-name").val() + "</p>");
       }
       if ($("#team-four-name").val() != "") {
         $("#team-list").append("<p id = 'team-four'>" + $("#team-four-name").val() + ": 0</p>");
+        $("#question-team-list").append("<div id = 'question-team-four'><p>" + $("#team-four-name").val() + "</p>");
       }
 
       $(".screen-one").hide();
@@ -116,7 +122,7 @@
 </script>
 
 <body>
-  <div class = "screen-one" style = "display: none;">
+  <div class = "screen-one">
     <button id = "login-button" type = "button"> Login </button>
     <h1>Welcome to Molly Rankin's Jeopardy!</h1>
     <div id = "screen-one-table">
@@ -211,7 +217,7 @@
   </div>
 </div>
 
-<div class = "screen-three">
+<div class = "screen-three" style = "display: none;">
 
   <button id = "close-question" type="button"> X </button>
   <p id = "question">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
