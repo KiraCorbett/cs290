@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'currency';
+const dbName = 'jeopardy';
 
 // Create a new MongoClient
 const client = new MongoClient(url,{useNewUrlParser:true});
@@ -17,26 +17,24 @@ client.connect(function(err) {
   else { console.log("Error:"+err); process.exit(1);}
   db = client.db(dbName);
   insertDocuments(db); //optionally insert stub data
-  
+
 });
 
 
 var jeopardy = [{
-  "category":"html",
-  "value":"100",
-  "question":"that is a question",
-  "answer":"that is an answer"
+  "category":"HTML",
+  "100q":"HTML 100 Question",
+  "100a":"HTML 100 Answer"
   }, {
-  "category":"css",
-  "value":"100",
-  "question":"that is a question",
-  "answer":"that is an answer"
+  "category":"CSS",
+  "100q":"CSS 100 Question",
+  "100a":"CSS 100 Answer"
   }
 ];
 
 
 const insertDocuments = function(db) {
-  const collection = db.collection('rates');
+  const collection = db.collection('jeopardy');
   //db.dropDatabase();
   console.log("Count="+collection.find({}).count());
   collection.countDocuments({},function(err,numRecords) {
@@ -54,7 +52,7 @@ const insertDocuments = function(db) {
 
 const findDocuments = function(req,res) {
   //const db = client.db(dbName);
-  const collection = db.collection('rates');
+  const collection = db.collection('jeopardy');
   // Find all documents
   collection.find({}).toArray(function(err, docs) {
     if(err!=null) {
@@ -66,50 +64,29 @@ const findDocuments = function(req,res) {
 }
 
 const findOne = function(req,res) {
-  const collection = db.collection('rates');
+  const collection = db.collection('jeopardy');
   console.log("Looking for category:"+req.query.name);
   collection.findOne({"category":req.query.name}, function(err,result) {
     if(!err && result) res.send(result);
     else {
         res.send({"error":"category not found"});
     }
-  })  
-}
-
-//an example of a post request
-const findcategory = function(req,res) {
-  const collection = db.collection('rates');
-  collection.findOne({"category":req.body.name}, function(err,result) {
-    if(!err && result) res.send(result);
-    else {
-        res.send({"error":"category not found"});
-    }
   })
 }
 
-//This one uses the category name as part of the url
-const findAcategory = function(req,res) {
-  const collection = db.collection('rates');
-  collection.findOne({"category":req.params.category}, function(err,result) {
-    if(!err && result) res.send(result);
-    else {
-        res.send({"error":"category not found"});
-    }
-  })
-}
 
-const addcategory = function(req,res) {
+const addCategory = function(req,res) {
     var newrec={};
-    newrec.category=req.body.category;
+    newrec.country=req.body.country;
     newrec.notation=req.body.notation;
     newrec.currency=req.body.currency;
     newrec.commission=req.body.commission;
     newrec.multiplier=req.body.multiplier;
-    var category = newrec.category;
+    var country = newrec.country;
 
     //console.log(JSON.stringify(newrec)); //alsotry console.log(req.body);
-    const collection = db.collection('rates');
-    collection.update({"category":category},newrec,{upsert :true}, function(err, result) {
+    const collection = db.collection('jeopardy');
+    collection.update({"country":country},newrec,{upsert :true}, function(err, result) {
             if (err) {
                 console.log({"Error":err});
             } else {
@@ -123,6 +100,4 @@ const addcategory = function(req,res) {
 
 module.exports.findAll = findDocuments;
 module.exports.findOne = findOne;
-module.exports.addcategory = addcategory;
-module.exports.findcategory = findcategory;
-module.exports.findAcategory = findAcategory;
+module.exports.addCategory = addCategory;
