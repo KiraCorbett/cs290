@@ -15,10 +15,13 @@
 <script>
 
   /*global $*/
-  
+
   var boxes = $('.choice-checked:checked');
 
   $(document).ready(function(event) {
+
+    var colOne100q;
+    var colOne100a;
 
     $("#login-button").click(function() {
       $(".screen-one").hide();
@@ -64,7 +67,7 @@
         $(this).val("");
       }
     });
-    
+
     $('#categories :checkbox').change(function () {
       if ($(this).is(':checked')) {
         console.log($(this).val() + ' is now checked');
@@ -76,7 +79,7 @@
   // loads checkbox choices and text fields when NEXT clicked
     $("#next-button").click(function(){
       var boxes = [];
-      $.each($("input[name='choice-checked']:checked"), function(){
+      $("#categories").each($("input[name='choice-checked']:checked"), function(){
         boxes.push($(this).val());
         alert($(this).val());
       });
@@ -108,46 +111,42 @@
   $("#close-question").click(function() {
     $(this).parent().hide();
   });
-  
-  var questions = [
-/* Category 1 Questions */
-  {
-    prompt: 'What is the expansion of HTML?',
-    options: [ 'Hyper Text Markup Language', 'Holding Text Marker Language', 'Hyperlink Text Management Language', 'Holding Text Modal Language'],
-    correctAnswer: 'Hyper Text Markup Language',
-    cashPrize: 10  
-  }
-  ];
-  
-  $(".qbutton").click(function() {
-    $("screen-three").show();
-    $.ajax({
-      url: "/getCategory",
-        success: function(result) {
-          $("screen-three").find("#question").val(result['question']);
-          $("screen-three").find("#answer-block").val(result['answer']);
-        },
-        error: function(xhr) {
-          console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
-          }
-      });
-  });
 
   $(document).keyup(function(e) {
     if (e.keyCode == 27) {
       $(".screen-three").hide();
     }
   });
-  
+
    $("#test").click(function(){
      $(".screen-three").show();
    });
+
+   $("#test-button").click(function() {
+      $.ajax({
+        url: "/getCategory?name=HTML",
+        success: function(result) {
+            colOne100q = result['100q'];
+            colOne100a = result['100a'];
+        },
+        error: function(xhr) {
+            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+        }
+    });
+   });
+
+    $("#colOne100").click(function() {
+       $("#question").text(colOne100q);
+       $("#answer").text(colOne100a);
+       $(".screen-three").show();
+    });
 
   });
 </script>
 
 <body>
   <div class = "screen-one">
+      <button id = "test-button" type = "button">Test</button>
     <button id = "login-button" type = "button"> Login </button>
     <h1>Welcome to Molly Rankin's Jeopardy!</h1>
     <div id = "screen-one-table">
@@ -155,10 +154,10 @@
         <tr>
           <th colspan="6">Select Five Categories</th>
         </tr>
-        
+
         <tr id = "categories">
           <td><input id="html-checked" type="checkbox" name="html-checked" value="html-checked"/> HTML</td>
-          <td><input id="css-checekd" type="checkbox" name="css-checked" value="css-checked"/> CSS</td>
+          <td><input id="css-checked" type="checkbox" name="css-checked" value="css-checked"/> CSS</td>
           <td><input id="jscript-checked" type="checkbox" name="jscript-checked" value="jscript-checked"/> JavaScript</td>
           <td><input id="jquery-checked" type="checkbox" name="jquery-checked" value="jquery-checked"/> JQuery</td>
           <td><input id="node-checked" type="checkbox" name="node-checked" value="node-checked"/> NodeJS</td>
@@ -193,47 +192,47 @@
   <button id = "game-back" style = "button"> << BACK </button>
   <div id = "screen-two-table">
     <table>
-      <tr>
-        <th>HTML</th>
-        <th>CSS</th>
-        <th>JAVASCRIPT</th>
-        <th>JQUERY</th>
-        <th>NODE</th>
-      </tr>
-        <td><button type = "button" class = "qbutton">100</button></td>
-        <td><button type = "button" class = "qbutton">100</button></td>
-        <td><button type = "button" class = "qbutton">100</button></td>
-        <td><button type = "button" class = "qbutton">100</button></td>
-        <td><button type = "button" class = "qbutton">100</button></td>
-      <tr>
-        <td><button type = "button" class = "qbutton">200</button></td>
-        <td><button type = "button" class = "qbutton">200</button></td>
-        <td><button type = "button" class = "qbutton">200</button></td>
-        <td><button type = "button" class = "qbutton">200</button></td>
-        <td><button type = "button" class = "qbutton">200</button></td>
-      </tr
-      <tr>
-        <td><button type = "button" class = "qbutton">300</button></td>
-        <td><button type = "button" class = "qbutton">300</button></td>
-        <td><button type = "button" class = "qbutton">300</button></td>
-        <td><button type = "button" class = "qbutton">300</button></td>
-        <td><button type = "button" class = "qbutton">300</button></td>
-      </tr>
-      <tr>
-        <td><button type = "button" class = "qbutton">400</button></td>
-        <td><button type = "button" class = "qbutton">400</button></td>
-        <td><button type = "button" class = "qbutton">400</button></td>
-        <td><button type = "button" class = "qbutton">400</button></td>
-        <td><button type = "button" class = "qbutton">400</button></td>
-      </tr>
-      <tr>
-        <td><button type = "button" class = "qbutton">500</button></td>
-        <td><button type = "button" class = "qbutton">500</button></td>
-        <td><button type = "button" class = "qbutton">500</button></td>
-        <td><button type = "button" class = "qbutton">500</button></td>
-        <td><button type = "button" class = "qbutton">500</button></td>
-      </tr>
-    </table>
+          <tr>
+            <th>HTML</th>
+            <th>CSS</th>
+            <th>JAVASCRIPT</th>
+            <th>JQUERY</th>
+            <th>NODE</th>
+          </tr>
+            <td id = "colOne100" style = "color: red">100</td>
+            <td>100</td>
+            <td>100</td>
+            <td>100</td>
+            <td>100</td>
+          <tr>
+            <td>200</td>
+            <td>200</td>
+            <td>200</td>
+            <td>200</td>
+            <td>200</td>
+          </tr>
+          <tr>
+            <td>300</td>
+            <td>300</td>
+            <td>300</td>
+            <td>300</td>
+            <td>300</td>
+          </tr>
+          <tr>
+            <td>400</td>
+            <td>400</td>
+            <td>400</td>
+            <td>400</td>
+            <td>400</td>
+          </tr>
+          <tr>
+            <td>500</td>
+            <td>500</td>
+            <td>500</td>
+            <td>500</td>
+            <td>500</td>
+          </tr>
+        </table>
   </div>
   <div id = "team-list">
     <p id = "team-one">Team 1: 0</p>
