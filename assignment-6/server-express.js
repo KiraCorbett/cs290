@@ -11,7 +11,7 @@ app.use(bodyParser.json()); //if you are going to pass json requests
 
 
 app.get('/allCategories', function(req,res) {
-    mydb.findAll(req,res);
+    mydb.findAll(req,res);n
 });
 app.get('/getCategory', function(req,res) {
     mydb.findOne(req,res);

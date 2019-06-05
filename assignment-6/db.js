@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'jeopardy';
+const dbName = 'currency';
 
 // Create a new MongoClient
 const client = new MongoClient(url,{useNewUrlParser:true});
@@ -20,18 +20,20 @@ client.connect(function(err) {
   
 });
 
+
 var jeopardy = [{
   "category":"html",
-  "question":"question this is",
-  "value":"10",
-  "answer":"the answer",
-  }, {
-  "category":"html",
-  "question":"question this is",
   "value":"100",
-  "answer":"the answer",
+  "question":"that is a question",
+  "answer":"that is an answer"
+  }, {
+  "category":"css",
+  "value":"100",
+  "question":"that is a question",
+  "answer":"that is an answer"
   }
 ];
+
 
 const insertDocuments = function(db) {
   const collection = db.collection('rates');
@@ -75,7 +77,7 @@ const findOne = function(req,res) {
 }
 
 //an example of a post request
-const findCategory = function(req,res) {
+const findcategory = function(req,res) {
   const collection = db.collection('rates');
   collection.findOne({"category":req.body.name}, function(err,result) {
     if(!err && result) res.send(result);
@@ -86,7 +88,7 @@ const findCategory = function(req,res) {
 }
 
 //This one uses the category name as part of the url
-const findACategory = function(req,res) {
+const findAcategory = function(req,res) {
   const collection = db.collection('rates');
   collection.findOne({"category":req.params.category}, function(err,result) {
     if(!err && result) res.send(result);
@@ -96,12 +98,13 @@ const findACategory = function(req,res) {
   })
 }
 
-const addCategory = function(req,res) {
+const addcategory = function(req,res) {
     var newrec={};
     newrec.category=req.body.category;
-    newrec.question=req.body.question;
-    newrec.value=req.body.value;
-    newrec.answer=req.body.answer;
+    newrec.notation=req.body.notation;
+    newrec.currency=req.body.currency;
+    newrec.commission=req.body.commission;
+    newrec.multiplier=req.body.multiplier;
     var category = newrec.category;
 
     //console.log(JSON.stringify(newrec)); //alsotry console.log(req.body);
@@ -120,6 +123,6 @@ const addCategory = function(req,res) {
 
 module.exports.findAll = findDocuments;
 module.exports.findOne = findOne;
-module.exports.addCategory = addCategory();
-module.exports.findCategory = findCategory();
-module.exports.findACategory = findACategory();
+module.exports.addcategory = addcategory;
+module.exports.findcategory = findcategory;
+module.exports.findAcategory = findAcategory;

@@ -6,6 +6,7 @@
 
 <head>
   <link href="css/stylesheet.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
   <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
@@ -13,16 +14,11 @@
 
 <script>
 
-  var htmlChecked = false;
-  var cssChecked = false;
-  var jscriptChecked = false;
-  var jqueryChecked = false;
-  var nodeChecked = false;
-  var mongoChecked = false;
+  /*global $*/
   
   var boxes = $('.choice-checked:checked');
 
-  $(document).ready(function(event){
+  $(document).ready(function(event) {
 
     $("#login-button").click(function() {
       $(".screen-one").hide();
@@ -75,11 +71,10 @@
         } else {
           console.log($(this).val() + ' is now unchecked');
         }
-      });
+    });
 
   // loads checkbox choices and text fields when NEXT clicked
     $("#next-button").click(function(){
-      
       var boxes = [];
       $.each($("input[name='choice-checked']:checked"), function(){
         boxes.push($(this).val());
@@ -106,6 +101,30 @@
 
   $("#close-question").click(function() {
     $(this).parent().hide();
+  });
+  
+  var questions = [
+/* Category 1 Questions */
+  {
+    prompt: 'What is the expansion of HTML?',
+    options: [ 'Hyper Text Markup Language', 'Holding Text Marker Language', 'Hyperlink Text Management Language', 'Holding Text Modal Language'],
+    correctAnswer: 'Hyper Text Markup Language',
+    cashPrize: 10  
+  }
+  ];
+  
+  $(".qbutton").click(function() {
+    $("screen-three").show();
+    $.ajax({
+      url: "/getCategory",
+        success: function(result) {
+          $("screen-three").find("#question").val(result['question']);
+          $("screen-three").find("#answer-block").val(result['answer']);
+        },
+        error: function(xhr) {
+          console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+          }
+      });
   });
 
   $(document).keyup(function(e) {
@@ -176,38 +195,38 @@
         <th>JQUERY</th>
         <th>NODE</th>
       </tr>
-      <td><button type = "button" class = "qbutton">10</button></td>
-      <td><button type = "button" class = "qbutton">100</button></td>
-      <td>100</td>
-      <td>100</td>
-      <td>100</td>
+        <td><button type = "button" class = "qbutton">100</button></td>
+        <td><button type = "button" class = "qbutton">100</button></td>
+        <td><button type = "button" class = "qbutton">100</button></td>
+        <td><button type = "button" class = "qbutton">100</button></td>
+        <td><button type = "button" class = "qbutton">100</button></td>
       <tr>
-        <td>200</td>
-        <td>200</td>
-        <td>200</td>
-        <td>200</td>
-        <td>200</td>
+        <td><button type = "button" class = "qbutton">200</button></td>
+        <td><button type = "button" class = "qbutton">200</button></td>
+        <td><button type = "button" class = "qbutton">200</button></td>
+        <td><button type = "button" class = "qbutton">200</button></td>
+        <td><button type = "button" class = "qbutton">200</button></td>
+      </tr
+      <tr>
+        <td><button type = "button" class = "qbutton">300</button></td>
+        <td><button type = "button" class = "qbutton">300</button></td>
+        <td><button type = "button" class = "qbutton">300</button></td>
+        <td><button type = "button" class = "qbutton">300</button></td>
+        <td><button type = "button" class = "qbutton">300</button></td>
       </tr>
       <tr>
-        <td>300</td>
-        <td>300</td>
-        <td>300</td>
-        <td>300</td>
-        <td>300</td>
+        <td><button type = "button" class = "qbutton">400</button></td>
+        <td><button type = "button" class = "qbutton">400</button></td>
+        <td><button type = "button" class = "qbutton">400</button></td>
+        <td><button type = "button" class = "qbutton">400</button></td>
+        <td><button type = "button" class = "qbutton">400</button></td>
       </tr>
       <tr>
-        <td>400</td>
-        <td>400</td>
-        <td>400</td>
-        <td>400</td>
-        <td>400</td>
-      </tr>
-      <tr>
-        <td>500</td>
-        <td>500</td>
-        <td>500</td>
-        <td>500</td>
-        <td>500</td>
+        <td><button type = "button" class = "qbutton">500</button></td>
+        <td><button type = "button" class = "qbutton">500</button></td>
+        <td><button type = "button" class = "qbutton">500</button></td>
+        <td><button type = "button" class = "qbutton">500</button></td>
+        <td><button type = "button" class = "qbutton">500</button></td>
       </tr>
     </table>
   </div>
