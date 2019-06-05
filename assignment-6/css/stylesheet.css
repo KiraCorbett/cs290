@@ -5,8 +5,8 @@
 }
 
 body {
-    background-image: url("background.png");
-    font-family: 'IBM Plex Sans';
+  background-image: url("background.png");
+  font-family: 'IBM Plex Sans';
 }
 
 h1 {
@@ -25,31 +25,31 @@ h1 {
 }
 
 #screen-one-table {
-    width: 50%;
-    margin: 0 auto;
+  width: 50%;
+  margin: 0 auto;
 }
 
 #screen-one-table table {
   table-layout: fixed;
   background-color: white;
-    width: 100%;
-    border: 1px solid black;
-    border-collapse: collapse;
-  }
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
 
 #screen-one-table  th {
-    padding: 25px;
-    text-align: center;
-    font-size: 25px;
-  }
+  padding: 25px;
+  text-align: center;
+  font-size: 25px;
+}
 
 #screen-one-table  td {
-      border: 1px solid black;
-      text-align: center;
-      padding: 5px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 
 /* Screen Two Styles */
 
@@ -72,29 +72,30 @@ h1 {
 
 #screen-two-table table {
   table-layout: fixed;
-    background-color: white;
-    width: 100%;
-    border: 5px solid black;
-    border-collapse: collapse;
+  background-color: white;
+  width: 100%;
+  border: 5px solid black;
+  border-collapse: collapse;
 }
 
 #screen-two-table th {
-    padding: 25px;
-    text-align: center;
-    font-size: 25px;
-    border: 5px solid black;
-    background-color: #ffe7bc;
+  padding: 25px;
+  text-align: center;
+  font-size: 25px;
+  border: 5px solid black;
+  background-color: #ffe7bc;
 }
 
 #screen-two-table  td {
-      border: 1px solid black;
-      text-align: center;
-      padding: 5px;
-      padding-top: 2%;
-      padding-bottom: 2%;
-      font-size: 25px;
-      background-color: #bcffe9;
-  }
+  cursor: pointer;
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-size: 25px;
+  background-color: #bcffe9;
+}
 
 #team-list {
   text-align: center;
@@ -119,7 +120,7 @@ h1 {
   background-color: white;
   position: fixed;
   width: 50%;
-  height: 70%;
+  height: 65%;
   z-index: 2;
   top: 10%;
   left: 25%;
@@ -162,10 +163,10 @@ h1 {
 #question-team-list {
   display: block;
   margin-top: 10%;
-  margin-bottom: 1%;
 }
 
 #question-team-list div {
+  cursor: pointer;
   display: inline-block;
   background-color: lightblue;
   width: 20%;
@@ -174,7 +175,6 @@ h1 {
   margin: 0 auto;
   margin-left: 5px;
   border: 1px solid black;
-  margin-bottom: 1%;
 }
 
 #question-team-list div p {
@@ -238,12 +238,12 @@ h1 {
 }
 
 
-  /* Button Styles */
-  #next-button {
-    margin: 0 auto;
-    margin-top: 10px;
-    height: 25px;
-    width: 125px;
-    display: flex;
-    justify-content: center;
-  }
+/* Button Styles */
+#next-button {
+  margin: 0 auto;
+  margin-top: 10px;
+  height: 25px;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+}
