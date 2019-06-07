@@ -11,45 +11,18 @@
 
 <script>
 
-  var boxes = $('.choice-checked:checked');
 
   $(document).ready(function(event) {
-      
+
+    var teamOnePoints = 0;
+    var teamTwoPoints = 0;
+    var teamThreePoints = 0;
+    var teamFourPoints = 0;
+    var currentTile;
+    var currentPointValue = 100;
+
     // HTML Column
     /*global $*/
-    var colOne100q;
-    var colOne100a;
-    var colOne200q;
-    var colOne200a;
-    var colOne300q;
-    var colOne300a;
-    var colOne400q;
-    var colOne400a;
-    var colOne500q;
-    var colOne500a;
-    
-    // CSS Column
-    var colTwo100q;
-    var colTwo100a;
-    var colTwo200q;
-    var colTwo200a;
-    var colTwo300q;
-    var colTwo300a;
-    var colTwo400q;
-    var colTwo400a;
-    var colTwo500q;
-    var colTwo500a;
-    
-    // JAVA Column
-
-    //Checked Boxes
-    var htmlChecked = false;
-    var cssChecked = false;
-    var javascriptChecked = false;
-    var jqueryChecked = false;
-    var nodejsChecked = false;
-    var mongoChecked = false;
-    var numChecked = 0;
 
     // Column One
     var col1100q;
@@ -168,78 +141,6 @@
       }
     });
 
-    $('#html-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        htmlChecked = true;
-        ++numChecked;
-        } else {
-          htmlChecked = false;
-          --numChecked;
-          console.log($(this).val() + ' is now unchecked');
-        }
-    });
-
-    $('#css-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        ++numChecked;
-        cssChecked = true;
-        } else {
-          cssChecked = false;
-          --numChecked;
-          console.log($(this).val() + ' is now unchecked');
-        }
-    });
-
-    $('#jscript-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        ++numChecked;
-        javascriptChecked = true;
-        } else {
-          javascriptChecked = false;
-          --numChecked;
-          console.log($(this).val() + ' is now unchecked');
-        }
-    });
-
-    $('#jquery-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        ++numChecked;
-        jqueryChecked = true;
-        } else {
-          jqueryChecked = false;
-          --numChecked;
-          console.log($(this).val() + ' is now unchecked');
-        }
-    });
-
-    $('#node-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        ++numChecked;
-        nodejsChecked = true;
-        } else {
-          --numChecked;
-          nodejsChecked = false;
-          console.log($(this).val() + ' is now unchecked');
-        }
-    });
-
-    $('#mong-checked').change(function () {
-      if ($(this).is(':checked')) {
-        console.log($(this).val() + ' is now checked');
-        ++numChecked;
-        mongoChecked = true;
-        } else {
-          --numChecked;
-          mongoChecked = false;
-          console.log($(this).val() + ' is now unchecked');
-        }
-        console.log(numChecked);
-    });
 
 
   // loads checkbox choices and text fields when NEXT clicked
@@ -247,6 +148,7 @@
       var $boxes = $('input[name=checked]:checked');
 
       var teamNameArgsValid = $("#team-one-name").val() != "" && $("#team-two-name").val() != "";
+
 
       if (teamNameArgsValid && $boxes.length == 5) {
         $("#team-list").empty();
@@ -257,13 +159,46 @@
         $("#question-team-list").append("<div id = 'question-team-one'><p>" + $("#team-one-name").val() + "</p>");
         $("#question-team-list").append("<div id = 'question-team-two'><p>" + $("#team-two-name").val() + "</p>");
 
+        $("#question-team-one").click(function() {
+          teamOnePoints += currentPointValue;
+          $("#team-one").text($("#team-one-name").val() + ": " + teamOnePoints);
+          $(currentTile).css("text-decoration", "line-through");
+          $(currentTile).css("cursor", "default");
+          $(".screen-three").hide();
+          console.log(currentTile);
+        });
+
+        $("#question-team-two").click(function() {
+          teamTwoPoints += currentPointValue;
+          $("#team-two").text($("#team-two-name").val() + ": " + teamTwoPoints);
+          $(currentTile).css("text-decoration", "line-through");
+          $(".screen-three").hide();
+          $(currentTile).css("cursor", "default");
+        });
+
         if ($("#team-three-name").val() != "") {
           $("#team-list").append("<p id = 'team-three'>" + $("#team-three-name").val() + ": 0</p>");
           $("#question-team-list").append("<div id = 'question-team-three'><p>" + $("#team-three-name").val() + "</p>");
+
+          $("#question-team-three").click(function() {
+            teamThreePoints += currentPointValue;
+            $("#team-three").text($("#team-three-name").val() + ": " + teamThreePoints);
+            $(currentTile).css("text-decoration", "line-through");
+            $(".screen-three").hide();
+            $(currentTile).css("cursor", "default");
+          });
         }
         if ($("#team-four-name").val() != "") {
           $("#team-list").append("<p id = 'team-four'>" + $("#team-four-name").val() + ": 0</p>");
           $("#question-team-list").append("<div id = 'question-team-four'><p>" + $("#team-four-name").val() + "</p>");
+
+          $("#question-team-four").click(function() {
+            teamFourPoints += currentPointValue;
+            $("#team-four").text($("#team-four-name").val() + ": " + teamFourPoints);
+            $(currentTile).css("text-decoration", "line-through");
+            $(currentTile).css("cursor", "default");
+            $(".screen-three").hide();
+          });
         }
         var iterator = 1;
         $boxes.each(function() {
@@ -697,6 +632,7 @@
 
         $(".screen-one").hide();
         $(".screen-two").show();
+        $(".screen-three").hide();
       }
   });
 
@@ -719,47 +655,63 @@
        $("#question").text(col1100q);
        $("#answer").text(col1100a);
        $(".screen-three").show();
+       currentPointValue = 100;
+       currentTile = "#colOne100"
     });
 
     $("#colOne200").click(function() {
        $("#question").text(col1200q);
        $("#answer").text(col1200a);
        $(".screen-three").show();
+       currentPointValue = 200;
+       currentTile = "#colOne200"
     });
 
     $("#colOne300").click(function() {
        $("#question").text(col1300q);
        $("#answer").text(col1300a);
        $(".screen-three").show();
+       currentPointValue = 300;
+       currentTile = "#colOne300"
     });
 
     $("#colOne400").click(function() {
        $("#question").text(col1400q);
        $("#answer").text(col1400a);
        $(".screen-three").show();
+       currentPointValue = 400;
+       currentTile = "#colOne400"
     });
 
     $("#colOne500").click(function() {
        $("#question").text(col1500q);
        $("#answer").text(col1500a);
        $(".screen-three").show();
+       currentPointValue = 500;
+       currentTile = "#colOne500"
     });
 
     $("#colTwo100").click(function() {
        $("#question").text(col2100q);
        $("#answer").text(col2100a);
        $(".screen-three").show();
+       currentPointValue = 100;
+       currentTile = "#colTwo100"
     });
 
     $("#colTwo200").click(function() {
        $("#question").text(col2200q);
        $("#answer").text(col2200a);
+       currentTile = "#colTwo200"
+       currentPointValue = 200;
        $(".screen-three").show();
     });
 
     $("#colTwo300").click(function() {
        $("#question").text(col2300q);
+       currentTile = "#colTwo300"
        $("#answer").text(col2300a);
+       currentPointValue = 300;
        $(".screen-three").show();
     });
 
@@ -767,102 +719,136 @@
        $("#question").text(col2400q);
        $("#answer").text(col2400a);
        $(".screen-three").show();
+       currentPointValue = 400;
+       currentTile = "#colTwo400"
     });
 
     $("#colTwo500").click(function() {
        $("#question").text(col2500q);
        $("#answer").text(col2500a);
        $(".screen-three").show();
+       currentPointValue = 500;
+       currentTile = "#colTwo500"
     });
 
     $("#colThree100").click(function() {
        $("#question").text(col3100q);
        $("#answer").text(col3100a);
        $(".screen-three").show();
+       currentPointValue = 100;
+       currentTile = "#colThree100"
     });
 
     $("#colThree200").click(function() {
        $("#question").text(col3200q);
        $("#answer").text(col3200a);
        $(".screen-three").show();
+       currentPointValue = 200;
+       currentTile = "#colThree200"
     });
 
     $("#colThree300").click(function() {
        $("#question").text(col3300q);
        $("#answer").text(col3300a);
        $(".screen-three").show();
+       currentPointValue = 300;
+       currentTile = "#colThree300"
     });
 
     $("#colThree400").click(function() {
        $("#question").text(col3400q);
        $("#answer").text(col3400a);
        $(".screen-three").show();
+       currentPointValue = 400;
+       currentTile = "#colThree400"
     });
 
     $("#colThree500").click(function() {
        $("#question").text(col3500q);
        $("#answer").text(col3500a);
        $(".screen-three").show();
+       currentPointValue = 500;
+       currentTile = "#colThree500"
     });
 
     $("#colFour100").click(function() {
        $("#question").text(col4100q);
        $("#answer").text(col4100a);
        $(".screen-three").show();
+       currentPointValue = 100;
+       currentTile = "#colFour100"
     });
 
     $("#colFour200").click(function() {
        $("#question").text(col4200q);
        $("#answer").text(col4200a);
        $(".screen-three").show();
+       currentPointValue = 200;
+       currentTile = "#colFour200"
     });
 
     $("#colFour300").click(function() {
        $("#question").text(col4300q);
        $("#answer").text(col4300a);
+       currentPointValue = 300;
        $(".screen-three").show();
+       currentTile = "#colFour300"
     });
 
     $("#colFour400").click(function() {
        $("#question").text(col4400q);
        $("#answer").text(col4400a);
+       currentPointValue = 400;
        $(".screen-three").show();
+       currentTile = "#colFour400"
     });
 
     $("#colFour500").click(function() {
        $("#question").text(col4500q);
        $("#answer").text(col4500a);
        $(".screen-three").show();
+       currentPointValue = 500;
+       currentTile = "#colFour500"
     });
 
     $("#colFive100").click(function() {
        $("#question").text(col5100q);
        $("#answer").text(col5100a);
        $(".screen-three").show();
+       currentTile = "#colFive100"
+       currentPointValue = 100;
     });
 
     $("#colFive200").click(function() {
        $("#question").text(col5200q);
        $("#answer").text(col5200a);
        $(".screen-three").show();
+       currentPointValue = 200;
+       currentTile = "#colFive200"
     });
 
     $("#colFive300").click(function() {
        $("#question").text(col5300q);
        $("#answer").text(col5300a);
+       currentPointValue = 300;
        $(".screen-three").show();
+       currentTile = "#colFive300"
     });
 
     $("#colFive400").click(function() {
        $("#question").text(col5400q);
        $("#answer").text(col5400a);
        $(".screen-three").show();
+        currentPointValue = 400;
+       currentTile = "#colFive400"
     });
 
     $("#colFive500").click(function() {
        $("#question").text(col5500q);
        $("#answer").text(col5500a);
        $(".screen-three").show();
+       currentTile = "#colFive500"
+       currentPointValue = 500;
     });
 
   });
@@ -912,7 +898,7 @@
   </div>
 </div>
 
-<div class = "screen-two">
+<div class = "screen-two" style = "display: none;">
   <button id = "game-back"> << BACK </button>
   <div id = "screen-two-table">
     <table>

@@ -7,10 +7,10 @@
         <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
     </head>
-    
+
     <script>
     $(document).ready(function(event) {
-        
+
         /*global $*/
         /*global $*/
     var colOne100q;
@@ -23,7 +23,7 @@
     var colOne400a;
     var colOne500q;
     var colOne500a;
-    
+
     // CSS Column
     var colTwo100q;
     var colTwo100a;
@@ -35,24 +35,24 @@
     var colTwo400a;
     var colTwo500q;
     var colTwo500a;
-    
+
     // JAVA Column
-        
+
         // login
         var globalUser = "cs290";
         var globalPass = "spring";
-        
+
         $("#login-back").click(function() {
              window.location.replace("index.html");
         });
-        
+
         $("#login-step").click(function() {
             $.ajax({
             //url: "/getCategory?name=login",
             success: function(result) {
             var user = $("#username").val();
             var pass = $("#password").val();
-          
+
             if (user == globalUser && pass == globalPass) {
                 $("#login-error").hide();
                 setCookie(user, pass, 1);
@@ -69,27 +69,27 @@
             }
             })
         });
-        
+
         function setCookie (cName, cValue, days) {
             var date = new Date();
             date.setTime(date.getTime() + (days*24*60*60*1000));
             var expires = "expires="+ date.toUTCString();
             document.cookie = cName + "=" + cValue + "; " + expires;
         }
-        
+
         $('#categories :checkbox').change(function () {
             if ($('input[type=checkbox]:checked').length > 1) {
                 $(this).prop('checked', false);
                 alert("Please only select one!");
             }
-            
+
               if ($(this).is(':checked')) {
                 console.log($(this).val() + ' is now checked');
             } else {
                 console.log($(this).val() + ' is now unchecked');
             }
         });
-        
+
         $("#test").click(function() {
               $.ajax({
                     url: "/getCategory?name=",
@@ -110,7 +110,7 @@
                     }
                 });
         });
-        
+
         function handleTextEditing(paragraphId, formId, textId) {
           var paragraph = document.getElementById(paragraphId);
           var form = document.getElementById(formId);
@@ -119,7 +119,7 @@
           paragraph.style.display = "none";
           form.style.display = "block";
         }
-        
+
         function replaceText(paragraphId, formId, textId) {
           var newText = document.getElementById(textId);
           var form = document.getElementById(formId);
@@ -128,10 +128,10 @@
           paragraph.style.display = "block";
           form.style.display = "none";
         }
-        
+
     });
     </script>
-    
+
     <body>
         <div class = "screen-four">
             <button id = "login-back" type = "button"> << Back </button>
@@ -142,7 +142,7 @@
                 <p id = "login-error" style = "display: none">Invalid user combination!</p>
             </div>
         </div>
-        
+
         <div class = "screen-one" style = "display: none">
             <div id = "screen-one-table">
                 <button id = "test">test</button>
