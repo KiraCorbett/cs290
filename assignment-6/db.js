@@ -20,15 +20,53 @@ client.connect(function(err) {
 
 });
 
+var login = [{
+  "user":"admin",
+  "username":"cs290",
+  "password":"spring"
+}]
 
 var jeopardy = [{
   "category":"HTML",
   "100q":"HTML 100 Question",
-  "100a":"HTML 100 Answer"
+  "100a":"HTML 100 Answer",
+  "200q":"HTML Question",
+  "200a":"HTML Answer",
+  "300q":"HTML Question",
+  "300a":"HTML Answer",
+  "400q":"HTML Question",
+  "400a":"HTML Answer",
+  "500q":"HTML Question",
+  "500a":"HTML Answer",
   }, {
   "category":"CSS",
   "100q":"CSS 100 Question",
-  "100a":"CSS 100 Answer"
+  "100a":"CSS 100 Answer",
+  "200q":"CSS Question",
+  "200a":"CSS Answer",
+  "300q":"CSS Question",
+  "300a":"CSS Answer",
+  "400q":"CSS Question",
+  "400a":"CSS Answer",
+  "500q":"CSS Question",
+  "500a":"CSS Answer",
+  },
+  {
+  "category":"JAVA",
+  "100q":"JAVA 100 Question",
+  "100a":"JAVA 100 Answer",
+  "200q":"JAVA Question",
+  "200a":"JAVA Answer",
+  "300q":"JAVA Question",
+  "300a":"JAVA Answer",
+  "400q":"JAVA Question",
+  "400a":"JAVA Answer",
+  "500q":"JAVA Question",
+  "500a":"JAVA Answer",
+  }, {
+  "category":"login",
+  "user":"cs290",
+  "pass":"spring"
   }
 ];
 
@@ -73,7 +111,6 @@ const findOne = function(req,res) {
     }
   })
 }
-
 
 const addCategory = function(req,res) {
     var newrec={};

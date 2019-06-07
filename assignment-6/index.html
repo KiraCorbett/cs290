@@ -6,7 +6,6 @@
 
 <head>
   <link href="css/stylesheet.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
   <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
@@ -20,13 +19,49 @@
 
   $(document).ready(function(event) {
 
+    // HTML Column
     var colOne100q;
     var colOne100a;
+    var colOne200q;
+    var colOne200a;
+    var colOne300q;
+    var colOne300a;
+    var colOne400q;
+    var colOne400a;
+    var colOne500q;
+    var colOne500a;
+    
+    // CSS Column
+    var colTwo100q;
+    var colTwo100a;
+    var colTwo200q;
+    var colTwo200a;
+    var colTwo300q;
+    var colTwo300a;
+    var colTwo400q;
+    var colTwo400a;
+    var colTwo500q;
+    var colTwo500a;
+    
+    // JAVA Column
 
     $("#login-button").click(function() {
       $(".screen-one").hide();
       $(".screen-four").show();
     });
+   
+    $("#login-step").click(function() {
+      $.ajax({
+        url: "/getCategory?name=login",
+        success: function(data) {
+          $("#screen-two").html(data);
+          console.log("login");
+        },
+        error: function(xhr) {
+            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+        }
+      })
+   });
 
     $("#login-back").click(function() {
       $(".screen-one").show();
@@ -128,6 +163,24 @@
         success: function(result) {
             colOne100q = result['100q'];
             colOne100a = result['100a'];
+            colOne200q = result['200q'];
+            colOne200a = result['200a'];
+            colOne300q = result['300q'];
+            colOne300a = result['300a'];
+            colOne400q = result['400q'];
+            colOne400a = result['400a'];
+            colOne500q = result['500q'];
+            colOne500a = result['500a'];
+        },
+        error: function(xhr) {
+            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+        }
+      });
+      $.ajax({
+        url: "/getCategory?name=CSS",
+        success: function(result) {
+            colTwo100q = result['100q'];
+            colTwo100a = result['100a'];
         },
         error: function(xhr) {
             console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
@@ -139,6 +192,36 @@
        $("#question").text(colOne100q);
        $("#answer").text(colOne100a);
        $(".screen-three").show();
+    });
+    
+    $("#colOne200").click(function() {
+       $("#question").text(colOne200q);
+       $("#answer").text(colOne200a);
+       $(".screen-three").show();
+    });
+    
+    $("#colOne300").click(function() {
+       $("#question").text(colOne300q);
+       $("#answer").text(colOne300a);
+       $(".screen-three").show();
+    });
+    
+    $("#colOne400").click(function() {
+       $("#question").text(colOne400q);
+       $("#answer").text(colOne400a);
+       $(".screen-three").show();
+    });
+    
+    $("#colOne500").click(function() {
+       $("#question").text(colOne500q);
+       $("#answer").text(colOne500a);
+       $(".screen-three").show();
+    });
+    
+    $("#colTwo100").click(function() {
+      $("#question").text(colTwo100q);
+      $("#answer").text(colTwo100a);
+      $(".screen-three").show();
     });
 
   });
@@ -200,33 +283,33 @@
             <th>NODE</th>
           </tr>
             <td id = "colOne100" style = "color: red">100</td>
-            <td>100</td>
+            <td id = "colTwo100">100</td>
             <td>100</td>
             <td>100</td>
             <td>100</td>
           <tr>
-            <td>200</td>
+            <td id = "colOne200">200</td>
             <td>200</td>
             <td>200</td>
             <td>200</td>
             <td>200</td>
           </tr>
           <tr>
-            <td>300</td>
+            <td id = "colOne300">300</td>
             <td>300</td>
             <td>300</td>
             <td>300</td>
             <td>300</td>
           </tr>
           <tr>
-            <td>400</td>
+            <td id = "colOne400">400</td>
             <td>400</td>
             <td>400</td>
             <td>400</td>
             <td>400</td>
           </tr>
           <tr>
-            <td>500</td>
+            <td id = "colOne500">500</td>
             <td>500</td>
             <td>500</td>
             <td>500</td>
@@ -256,12 +339,12 @@
   </div>
 </div>
 
-<div class = "screen-four" style = "display: none;">
+<div class = "screen-four" onsubmit = "return false" style = "display: none;">
   <button id = "login-back" type = "button"> << Back </button>
   <div>
-    <p>Username: </p><input type = "text">
-    <p>Password: </p><input type = "text">
-    <button type = "button"> Submit </button>
+    <p>Username: </p><input id = "username" name = "username" type = "text">
+    <p>Password: </p><input id = "password" name = "password" type = "text">
+    <input id = "login-step" type = "submit" value = "login">
   </div>
 </div>
 
@@ -285,7 +368,6 @@
   <p>Answer: </p><textarea rows = "10" cols = "50"></textarea>
 </div>
 
-<script src="main.js"></script>
 </body>
 
 </html>

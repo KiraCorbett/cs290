@@ -31,6 +31,11 @@ app.post('/findCategory', function(req,res) {
     mydb.findCategory(req,res);
 });
 
+app.get('/findUser', function(req, res) {
+    //req.session.user = user;
+    mydb.findUser(req,res);
+});
+
 //Another way to process get request. If you hit /find/India, this will match the url
 //and pass India as the key country in req.params.country
 //These types of url are better looking than the query-params we have seen so far.
