@@ -42,7 +42,9 @@
         var globalUser = "cs290";
         var globalPass = "spring";
         
-        $("#login-back").click(function() {
+        var userString = "";
+        
+        $(".login-back").click(function() {
              window.location.replace("index.html");
         });
         
@@ -82,59 +84,43 @@
                 $(this).prop('checked', false);
                 alert("Please only select one!");
             }
-            
-              if ($(this).is(':checked')) {
-                console.log($(this).val() + ' is now checked');
-            } else {
-                console.log($(this).val() + ' is now unchecked');
-            }
+                
+            if ($(this).is(':checked')) {
+                $("#form-one").show();
+                    $.ajax({
+                        url: "/getCategory?name=HTML",
+                        success: function(result) {
+                            $("#form-one-text").val(result['100q']);
+                        },
+                        error: function(xhr) {
+                            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+                        }
+                    });
+                    console.log($(this).val() + ' is now checked');
+                } else {
+                    $("#form-one").hide();
+                    console.log($(this).val() + ' is now unchecked');
+                }
         });
+    
         
-        $("#test").click(function() {
-              $.ajax({
-                    url: "/getCategory?name=",
-                    success: function(result) {
-                        colOne100q = result['100q'];
-                        colOne100a = result['100a'];
-                        colOne200q = result['200q'];
-                        colOne200a = result['200a'];
-                        colOne300q = result['300q'];
-                        colOne300a = result['300a'];
-                        colOne400q = result['400q'];
-                        colOne400a = result['400a'];
-                        colOne500q = result['500q'];
-                        colOne500a = result['500a'];
-                    },
-                    error: function(xhr) {
-                        console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+        $("#save-button").click(function() {
+            $.ajax({
+                url: "/addCategory",
+                    type: 'post',
+                        data: {
+                            category: "HTML",
+                            _100q: $("#form-text-one").val()
                     }
-                });
+            });
+            $("#form-one").hide();
         });
-        
-        function handleTextEditing(paragraphId, formId, textId) {
-          var paragraph = document.getElementById(paragraphId);
-          var form = document.getElementById(formId);
-          var textArea = document.getElementById(textId);
-          textArea.value = paragraph.innerHTML;
-          paragraph.style.display = "none";
-          form.style.display = "block";
-        }
-        
-        function replaceText(paragraphId, formId, textId) {
-          var newText = document.getElementById(textId);
-          var form = document.getElementById(formId);
-          var paragraph = document.getElementById(paragraphId);
-          paragraph.innerHTML = newText.value;
-          paragraph.style.display = "block";
-          form.style.display = "none";
-        }
-        
     });
     </script>
     
     <body>
         <div class = "screen-four">
-            <button id = "login-back" type = "button"> << Back </button>
+            <button class = "login-back" type = "button"> << Back </button>
             <div>
                 <p>Username: </p><input id = "username" name = "username" type = "text">
                 <p>Password: </p><input id = "password" name = "password" type = "text">
@@ -144,8 +130,8 @@
         </div>
         
         <div class = "screen-one" style = "display: none">
+            <button class = "login-back" type = "button"> << Back </button>
             <div id = "screen-one-table">
-                <button id = "test">test</button>
                 <table>
                     <tr>
                       <th colspan="6">Select a Cateogry</th>
@@ -161,6 +147,13 @@
                     </tr>
                 </table>
              </div>
+             
+            <div id = "form-one" style = "display: none">
+                <form>
+                  <textarea rows = "15" cols = "80" id = "form-one-text"></textarea>
+                  <input id = "save-button" type = "button" value = " SAVE ">
+                </form>
+              </div>
         </div>
     </body>
 </html>
