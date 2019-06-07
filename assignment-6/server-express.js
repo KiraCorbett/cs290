@@ -2,13 +2,20 @@ var http = require("http");
 var express = require('express');
 var mydb = require("./db");
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 //use urlencoded method to parse post requests
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); //if you are going to pass json requests
+app.use(cookieParser());
 
+app.use(function(req,res,next) {
+    console.log(req.cookies);
+    //res.cookie("cakename", 'oatmeal chocolate chip');
+    next();
+})
 
 app.get('/allCategories', function(req,res) {
     mydb.findAll(req,res);n
@@ -29,11 +36,6 @@ app.post('/addCategory', function(req,res) {
 //An example of post request. Here name:country is part of a post request
 app.post('/findCategory', function(req,res) {
     mydb.findCategory(req,res);
-});
-
-app.get('/findUser', function(req, res) {
-    //req.session.user = user;
-    mydb.findUser(req,res);
 });
 
 //Another way to process get request. If you hit /find/India, this will match the url

@@ -20,12 +20,6 @@ client.connect(function(err) {
 
 });
 
-var login = [{
-  "user":"admin",
-  "username":"cs290",
-  "password":"spring"
-}]
-
 var jeopardy = [{
   "category":"HTML",
   "100q":"HTML 100 Question",

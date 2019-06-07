@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link href="css/stylesheet.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans" rel="stylesheet">
+    </head>
+    
+    <script>
+    $(document).ready(function(event) {
+        
+        /*global $*/
+        /*global $*/
+    var colOne100q;
+    var colOne100a;
+    var colOne200q;
+    var colOne200a;
+    var colOne300q;
+    var colOne300a;
+    var colOne400q;
+    var colOne400a;
+    var colOne500q;
+    var colOne500a;
+    
+    // CSS Column
+    var colTwo100q;
+    var colTwo100a;
+    var colTwo200q;
+    var colTwo200a;
+    var colTwo300q;
+    var colTwo300a;
+    var colTwo400q;
+    var colTwo400a;
+    var colTwo500q;
+    var colTwo500a;
+    
+    // JAVA Column
+        
+        // login
+        var globalUser = "cs290";
+        var globalPass = "spring";
+        
+        $("#login-back").click(function() {
+             window.location.replace("index.html");
+        });
+        
+        $("#login-step").click(function() {
+            $.ajax({
+            //url: "/getCategory?name=login",
+            success: function(result) {
+            var user = $("#username").val();
+            var pass = $("#password").val();
+          
+            if (user == globalUser && pass == globalPass) {
+                $("#login-error").hide();
+                setCookie(user, pass, 1);
+                $(".screen-one").show();
+                $(".screen-four").hide();
+                console.log("success");
+            } else {
+                $("#login-error").show();
+                console.log("fail");
+                }
+            },
+            error: function(xhr) {
+            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+            }
+            })
+        });
+        
+        function setCookie (cName, cValue, days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            var expires = "expires="+ date.toUTCString();
+            document.cookie = cName + "=" + cValue + "; " + expires;
+        }
+        
+        $('#categories :checkbox').change(function () {
+            if ($('input[type=checkbox]:checked').length > 1) {
+                $(this).prop('checked', false);
+                alert("Please only select one!");
+            }
+            
+              if ($(this).is(':checked')) {
+                console.log($(this).val() + ' is now checked');
+            } else {
+                console.log($(this).val() + ' is now unchecked');
+            }
+        });
+        
+        $("#test").click(function() {
+              $.ajax({
+                    url: "/getCategory?name=",
+                    success: function(result) {
+                        colOne100q = result['100q'];
+                        colOne100a = result['100a'];
+                        colOne200q = result['200q'];
+                        colOne200a = result['200a'];
+                        colOne300q = result['300q'];
+                        colOne300a = result['300a'];
+                        colOne400q = result['400q'];
+                        colOne400a = result['400a'];
+                        colOne500q = result['500q'];
+                        colOne500a = result['500a'];
+                    },
+                    error: function(xhr) {
+                        console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
+                    }
+                });
+        });
+        
+        function handleTextEditing(paragraphId, formId, textId) {
+          var paragraph = document.getElementById(paragraphId);
+          var form = document.getElementById(formId);
+          var textArea = document.getElementById(textId);
+          textArea.value = paragraph.innerHTML;
+          paragraph.style.display = "none";
+          form.style.display = "block";
+        }
+        
+        function replaceText(paragraphId, formId, textId) {
+          var newText = document.getElementById(textId);
+          var form = document.getElementById(formId);
+          var paragraph = document.getElementById(paragraphId);
+          paragraph.innerHTML = newText.value;
+          paragraph.style.display = "block";
+          form.style.display = "none";
+        }
+        
+    });
+    </script>
+    
+    <body>
+        <div class = "screen-four">
+            <button id = "login-back" type = "button"> << Back </button>
+            <div>
+                <p>Username: </p><input id = "username" name = "username" type = "text">
+                <p>Password: </p><input id = "password" name = "password" type = "text">
+                <input id = "login-step" type = "submit" value = "login">
+                <p id = "login-error" style = "display: none">Invalid user combination!</p>
+            </div>
+        </div>
+        
+        <div class = "screen-one" style = "display: none">
+            <div id = "screen-one-table">
+                <button id = "test">test</button>
+                <table>
+                    <tr>
+                      <th colspan="6">Select a Cateogry</th>
+                    </tr>
+
+                    <tr id = "categories">
+                      <td><input id="html-checked" type="checkbox" name="html-checked" value="html-checked"/> HTML</td>
+                      <td><input id="css-checked" type="checkbox" name="css-checked" value="css-checked"/> CSS</td>
+                      <td><input id="jscript-checked" type="checkbox" name="jscript-checked" value="jscript-checked"/> JavaScript</td>
+                      <td><input id="jquery-checked" type="checkbox" name="jquery-checked" value="jquery-checked"/> JQuery</td>
+                      <td><input id="node-checked" type="checkbox" name="node-checked" value="node-checked"/> NodeJS</td>
+                      <td><input id="mong-checked" type="checkbox" name="mongo-checked" value="mongo-checked"/> Mongo</td>
+                    </tr>
+                </table>
+             </div>
+        </div>
+    </body>
+</html>
