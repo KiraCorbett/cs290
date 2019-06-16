@@ -11,39 +11,14 @@
     <script>
     $(document).ready(function(event) {
 
-        /*global $*/
-        /*global $*/
-    var colOne100q;
-    var colOne100a;
-    var colOne200q;
-    var colOne200a;
-    var colOne300q;
-    var colOne300a;
-    var colOne400q;
-    var colOne400a;
-    var colOne500q;
-    var colOne500a;
-
-    // CSS Column
-    var colTwo100q;
-    var colTwo100a;
-    var colTwo200q;
-    var colTwo200a;
-    var colTwo300q;
-    var colTwo300a;
-    var colTwo400q;
-    var colTwo400a;
-    var colTwo500q;
-    var colTwo500a;
-
-    // JAVA Column
+     /*global $*/
 
         // login
         var globalUser = "cs290";
         var globalPass = "spring";
 
-        $("#login-back").click(function() {
-             window.location.replace("index.html");
+        $(".login-back").click(function() {
+            window.location.replace("index.html");
         });
 
         $("#login-step").click(function() {
@@ -82,11 +57,6 @@
                 $(this).prop('checked', false);
                 alert("Please only select one!");
             }
-            $('#categories :checkbox').change(function () {
-            if ($('input[type=checkbox]:checked').length > 1) {
-                $(this).prop('checked', false);
-                alert("Please only select one!");
-            }
                 
             if ($(this).is(':checked')) {
                 $("#form-one").show();
@@ -117,7 +87,6 @@
                     }
             });
             $("#form-one").hide();
-        });
         });
     });
     </script>

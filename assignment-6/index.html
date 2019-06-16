@@ -88,24 +88,6 @@
       window.location.replace("login.html");
     });
 
-    $("#login-step").click(function() {
-      $.ajax({
-        url: "/getCategory?name=login",
-        success: function(data) {
-          $("#screen-two").html(data);
-          console.log("login");
-        },
-        error: function(xhr) {
-            console.log("An error occurred: " + xhr.status + " " + xhr.statusText);
-        }
-      })
-   });
-
-    $("#login-back").click(function() {
-      $(".screen-one").show();
-      $(".screen-four").hide();
-    });
-
     $("#game-back").click(function() {
       $(".screen-two").hide();
       $(".screen-one").show();
@@ -646,10 +628,6 @@
     }
   });
 
-   $("#test").click(function(){
-     $(".screen-three").show();
-   });
-
 
     $("#colOne100").click(function() {
        $("#question").text(col1100q);
@@ -856,7 +834,6 @@
 
 <body>
   <div class = "screen-one">
-      <button id = "test-button" type = "button">Test</button>
     <button id = "login-button" type = "button"> Login </button>
     <h1>Welcome to Molly Rankin's Jeopardy!</h1>
     <div id = "screen-one-table">
